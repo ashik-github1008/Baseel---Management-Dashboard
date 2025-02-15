@@ -4,7 +4,6 @@ from datetime import timedelta
 import dj_database_url
 import environ
 
-# Initialize environ
 env = environ.Env()
 environ.Env.read_env()
 
@@ -44,7 +43,7 @@ MIDDLEWARE = [
 ]
 
 DATABASES = {
-    'default': env.db('postgresql://django_db_q6oi_user:sj1YstC5ZyVBp3JzjQ63J9yXk7CoYIm3@dpg-cuo8terqf0us738tttc0-a/django_db_q6oi')
+    'default': env.db()
 }
 
 REST_FRAMEWORK = {
