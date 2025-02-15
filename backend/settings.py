@@ -3,6 +3,10 @@ from datetime import timedelta
 
 import dj_database_url
 import os
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -40,7 +44,7 @@ MIDDLEWARE = [
 ]
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('postgresql://django_db_q6oi_user:sj1YstC5ZyVBp3JzjQ63J9yXk7CoYIm3@dpg-cuo8terqf0us738tttc0-a/django_db_q6oi'))
+    'default': env.db('postgresql://django_db_q6oi_user:sj1YstC5ZyVBp3JzjQ63J9yXk7CoYIm3@dpg-cuo8terqf0us738tttc0-a/django_db_q6oi')
 }
 
 REST_FRAMEWORK = {
