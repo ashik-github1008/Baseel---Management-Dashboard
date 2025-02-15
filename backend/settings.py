@@ -3,10 +3,10 @@ from datetime import timedelta
 
 import dj_database_url
 import os
-import environ
 
-env = environ.Env()
-environ.Env.read_env()
+from dotenv import load_dotenv
+
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
