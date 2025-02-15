@@ -1,0 +1,137 @@
+### User Registration ###
+POST http://127.0.0.1:8000/api/users/register/
+Content-Type: application/json
+
+{
+  "username": "ashikuser",
+  "email": "ashikuser@example.com",
+  "password": "ashik@12345",
+  "confirm_password": "ashik@12345"
+}
+
+### Login ###
+POST http://127.0.0.1:8000/api/users/login/
+Content-Type: application/json
+
+{
+    "username": "ashik",
+    "password": "ashik@12345"
+}
+
+### 3 Refresh Token (After Login, Replace `<refresh_token>`) ###
+POST http://127.0.0.1:8000/api/users/token/refresh/
+Content-Type: application/json
+
+{
+  "refresh": "<refresh_token>"
+}
+
+###  Change Password (Replace `<access_token>` in Authorization Header) ###
+PUT http://127.0.0.1:8000/api/users/change-password/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5NTM4NTQ5LCJpYXQiOjE3Mzk1MzY3NDksImp0aSI6IjM2NGUyYjE2YzU4NzRlZDFiYzliYTNhZTRlMzZhZDk4IiwidXNlcl9pZCI6NSwicm9sZSI6Im1lbWJlciJ9.WyucWtW4b3QYJ052H0w6yY5J2e0VvEgEJHF0G2srT7g
+
+{
+  "old_password": "Test@12345",
+  "new_password": "NewPass@123",
+  "confirm_password": "NewPass@123"
+}
+
+###  View Profile (Replace `<access_token>` in Authorization Header) ###
+GET http://127.0.0.1:8000/api/users/profile/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5NjA2MDU1LCJpYXQiOjE3Mzk2MDQyNTUsImp0aSI6Ijc1MGYxNGRkMTNjNjQzNDFhNjNjOWJmNDk3NWZkZTQ5IiwidXNlcl9pZCI6NSwicm9sZSI6Im1lbWJlciJ9.kRAcpuKigfJRweVLVUPGjAgAHCBUtAdNmIFJDGtQQsg
+
+
+### Update Profile  ###
+PUT http://127.0.0.1:8000/api/users/profile/update/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5NTQ1MjIwLCJpYXQiOjE3Mzk1NDM0MjAsImp0aSI6IjViZDY0ZDVlMDIxNTQ5NDViOTI1NGQyMjYyNmMyMTQ3IiwidXNlcl9pZCI6NSwicm9sZSI6Im1lbWJlciJ9.M5J76d0zANNDXKQw2wm6Pnm35jDoCZpQvwwMS-kfyXs
+
+{
+  "first_name": "John",
+  "last_name": "Doe",
+  "email": "newemail@example.com"
+}
+
+
+### Create Project ###
+POST http://127.0.0.1:8000/api/projects/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5NTQ1MjIwLCJpYXQiOjE3Mzk1NDM0MjAsImp0aSI6IjViZDY0ZDVlMDIxNTQ5NDViOTI1NGQyMjYyNmMyMTQ3IiwidXNlcl9pZCI6NSwicm9sZSI6Im1lbWJlciJ9.M5J76d0zANNDXKQw2wm6Pnm35jDoCZpQvwwMS-kfyXs
+
+{
+    "name": "Project Alpha",
+    "description": "First project in the system."
+}
+
+### List Projects ###
+GET http://127.0.0.1:8000/api/projects/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5NTUxMjA0LCJpYXQiOjE3Mzk1NDk0MDQsImp0aSI6IjcyMDQzNDkzZjY5ODQzYzViMzQ4YjZlYjkxMjVkYzU2IiwidXNlcl9pZCI6NSwicm9sZSI6Im1lbWJlciJ9.Qmr8eRp00gDtLKABpS8EyDRHWQYTCwvIBaC9BgwCxPA
+
+### Retrieve Single Project ###
+GET http://127.0.0.1:8000/api/projects/3/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5NTYwNTE0LCJpYXQiOjE3Mzk1NTg3MTQsImp0aSI6ImVmNzliMjZkNTUxOTQyNGE4OGEwN2ZhM2ZlZTEyNTkyIiwidXNlcl9pZCI6NSwicm9sZSI6Im1lbWJlciJ9.VLSCsVEcOiPMd7EEn5fCJL2gdi4RfnDPmkitOeFewH0
+
+### Update Project ###
+PUT http://127.0.0.1:8000/api/projects/4/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5NTQ1MjIwLCJpYXQiOjE3Mzk1NDM0MjAsImp0aSI6IjViZDY0ZDVlMDIxNTQ5NDViOTI1NGQyMjYyNmMyMTQ3IiwidXNlcl9pZCI6NSwicm9sZSI6Im1lbWJlciJ9.M5J76d0zANNDXKQw2wm6Pnm35jDoCZpQvwwMS-kfyXs
+
+{
+    "name": "Updated Project Alpha",
+    "description": "Updated project details."
+}
+
+### Delete Project ###
+DELETE http://127.0.0.1:8000/api/projects/4/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5NTQ1MjIwLCJpYXQiOjE3Mzk1NDM0MjAsImp0aSI6IjViZDY0ZDVlMDIxNTQ5NDViOTI1NGQyMjYyNmMyMTQ3IiwidXNlcl9pZCI6NSwicm9sZSI6Im1lbWJlciJ9.M5J76d0zANNDXKQw2wm6Pnm35jDoCZpQvwwMS-kfyXs
+
+
+### Create Task for a Project ###
+POST http://127.0.0.1:8000/api/projects/3/tasks/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5NTQ3MTA5LCJpYXQiOjE3Mzk1NDUzMDksImp0aSI6Ijk5YTQ0MGQzMmM3NjQ4ZDI5Mzg1MTg5ODlmN2IxNjEyIiwidXNlcl9pZCI6NSwicm9sZSI6Im1lbWJlciJ9.Axy5okK3tilHbXWR_sqbkpgWZX-sM5ehKYqxZLUb-bg
+
+{
+    "title": "Setup Database",
+    "description": "Configure PostgreSQL database for the project.",
+    "completed": false
+}
+
+### List Tasks for a Project ###
+GET http://127.0.0.1:8000/api/projects/3/tasks/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5NTQ3MTA5LCJpYXQiOjE3Mzk1NDUzMDksImp0aSI6Ijk5YTQ0MGQzMmM3NjQ4ZDI5Mzg1MTg5ODlmN2IxNjEyIiwidXNlcl9pZCI6NSwicm9sZSI6Im1lbWJlciJ9.Axy5okK3tilHbXWR_sqbkpgWZX-sM5ehKYqxZLUb-bg
+
+
+### Add Team Member to Project ###
+POST http://127.0.0.1:8000/api/projects/3/team/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5NjA3NjA5LCJpYXQiOjE3Mzk2MDU4MDksImp0aSI6ImUzNGUxMTBjNmE3YjQ3MDZiMDE0ZWM4YzYxZWMxOWRlIiwidXNlcl9pZCI6NSwicm9sZSI6Im1lbWJlciJ9.q8D4B1e9m8LDOWbRJD4wasZ1ODNFLlHE3YrjGkIsyQA
+
+{
+    "user": 1,
+    "role": "developer"
+}
+
+### Get All Team Members for a Project ###
+GET http://127.0.0.1:8000/api/projects/3/team/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5NjA3ODkzLCJpYXQiOjE3Mzk2MDYwOTMsImp0aSI6IjAwZmQ2MTFmMThiNDQ3N2NiZTY1NGEzNzVmM2IyNDc2IiwidXNlcl9pZCI6NSwicm9sZSI6Im1lbWJlciJ9.aM7M1CJZz8laW2EtckiLbdoPtMCZDMJ59QItSiTwTRs
+
+### Update Role of a Team Member (Only Owner Can Do This)
+PUT http://127.0.0.1:8000/api/projects/3/team/1/update/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5NjA3ODkzLCJpYXQiOjE3Mzk2MDYwOTMsImp0aSI6IjAwZmQ2MTFmMThiNDQ3N2NiZTY1NGEzNzVmM2IyNDc2IiwidXNlcl9pZCI6NSwicm9sZSI6Im1lbWJlciJ9.aM7M1CJZz8laW2EtckiLbdoPtMCZDMJ59QItSiTwTRs
+
+{
+  "role": "developer"
+}
+
+
+
+### Remove a Team Member (Only Owner Can Do This) ###
+DELETE http://127.0.0.1:8000/api/projects/3/team/1/delete/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5NjA3ODkzLCJpYXQiOjE3Mzk2MDYwOTMsImp0aSI6IjAwZmQ2MTFmMThiNDQ3N2NiZTY1NGEzNzVmM2IyNDc2IiwidXNlcl9pZCI6NSwicm9sZSI6Im1lbWJlciJ9.aM7M1CJZz8laW2EtckiLbdoPtMCZDMJ59QItSiTwTRs
+
+### Dashboard analytics ###
+GET http://127.0.0.1:8000/api/projects/dashboard/analytics/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5NjIwMTEyLCJpYXQiOjE3Mzk2MTgzMTIsImp0aSI6IjdlNjQ0YTY5MDIyZDRjNmM4YTQ2NTZkYTM5YjEzZTJhIiwidXNlcl9pZCI6MSwicm9sZSI6Im1lbWJlciJ9.V2XYTHJpsqZCtedb6bH6B4bIPbsgtgTQGPOgf44Qq50

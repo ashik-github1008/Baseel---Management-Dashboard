@@ -1,0 +1,59 @@
+[
+    {
+      "model": "users.customuser",
+      "pk": 1,
+      "fields": {
+        "username": "ashik",
+        "email": "mdashikash18@gmail.com",
+        "password": "ashik@12345",
+        "is_superuser": true,
+        "is_staff": true
+      }
+    },
+    {
+      "model": "projects.project",
+      "pk": 1,
+      "fields": {
+        "owner": 1,
+        "status": "pending",
+        "name": "Management Dashboard",
+        "description": "A full-stack management dashboard application.",
+        "created_at": "2025-02-15T12:00:00Z",
+        "updated_at": "2025-02-15T12:30:00Z"
+      }
+    },
+    {
+      "model": "projects.task",
+      "pk": 1,
+      "fields": {
+        "project": 1,
+        "status": "in_progress",
+        "title": "Set up Django backend",
+        "description": "Initialize Django REST framework and PostgreSQL.",
+        "completed": false,
+        "created_at": "2025-02-15T12:15:00Z"
+      }
+    },
+    {
+      "model": "projects.task",
+      "pk": 2,
+      "fields": {
+        "project": 1,
+        "status": "pending",
+        "title": "Implement authentication",
+        "description": "Add JWT-based authentication for users.",
+        "completed": false,
+        "created_at": "2025-02-15T12:20:00Z"
+      }
+    },
+    {
+      "model": "projects.teammember",
+      "pk": 1,
+      "fields": {
+        "project": 1,
+        "user": 1,
+        "role": "owner"
+      }
+    }
+  ]
+  
