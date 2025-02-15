@@ -6,3 +6,4 @@ whitenoise
 djangorestframework
 djangorestframework-simplejwt
 django-cors-headers
+django-extensions==3.2.1
