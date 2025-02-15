@@ -3,11 +3,15 @@ from datetime import timedelta
 
 import dj_database_url
 import environ
-
-env = environ.Env()
-environ.Env.read_env()
+import os
+from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 SECRET_KEY = 'your-secret-key'
 
@@ -43,7 +47,7 @@ MIDDLEWARE = [
 ]
 
 DATABASES = {
-    'default': env.db('postgresql://django_db_q6oi_user:sj1YstC5ZyVBp3JzjQ63J9yXk7CoYIm3@dpg-cuo8terqf0us738tttc0-a/django_db_q6oi')
+    'default': env.db('DATABASE_URL')
 }
 
 REST_FRAMEWORK = {
@@ -120,4 +124,3 @@ LOGGING = {
     },
 }
 
-DISABLE_COLLECTSTATIC = 1
